@@ -16,10 +16,15 @@ public class CompanyController {
         this.companyRepository = companyRepository;
     }
 
+
     @GetMapping
     public List<Company> getCompanyList()
     {
         return companyRepository.getCompanies();
+    }
+    @GetMapping("/{id}")
+    public Company getCompanyById(@PathVariable Integer id) throws NoSuchCompanyException {
+        return this.companyRepository.getCompanyById(id);
     }
 
     @PostMapping

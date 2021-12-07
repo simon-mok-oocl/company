@@ -60,4 +60,11 @@ public class CompanyRepository {
         updateCompany.setName(companyPatch.getName());
         return updateCompany;
     }
+
+    public Company getCompanyById(Integer id) throws NoSuchCompanyException {
+        return this.companies.stream()
+                .filter(company -> company.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new NoSuchCompanyException());
+    }
 }
