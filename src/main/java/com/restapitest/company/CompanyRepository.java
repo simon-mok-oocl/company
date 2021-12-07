@@ -45,20 +45,20 @@ public class CompanyRepository {
         return newCompany;
     }
 
-    public void removeCompany(Company ripCompnay) throws NoSuchCompanyException {
+    public void removeCompany(Integer id) throws NoSuchCompanyException {
         Company toBeRemove = this.companies
                 .stream()
-                .filter(company -> company.getId() == ripCompnay.getId())
+                .filter(company -> company.getId() == id)
                 .findFirst()
                 .orElseThrow(() -> new NoSuchCompanyException());
 
         this.companies.remove(toBeRemove);
     }
 
-    public Company updateCompany(Company companyPatch) throws NoSuchCompanyException {
+    public Company updateCompany(Integer id , Company companyPatch) throws NoSuchCompanyException {
         Company updateCompany = this.companies
                 .stream()
-                .filter(company -> company.getId() == companyPatch.getId())
+                .filter(company -> company.getId() == id)
                 .findFirst()
                 .orElseThrow(() -> new NoSuchCompanyException());
 

@@ -45,14 +45,14 @@ public class CompanyController {
         return new ResponseEntity<Company>(company , HttpStatus.CREATED);
     }
 
-    @PutMapping
-    public Company updateCompany(@RequestBody Company company) throws NoSuchCompanyException {
-        return this.companyRepository.updateCompany(company);
+    @PutMapping("/{id}")
+    public Company updateCompany(@PathVariable Integer id , @RequestBody Company company) throws NoSuchCompanyException {
+        return this.companyRepository.updateCompany(id , company);
     }
 
-    @DeleteMapping
-    public String removeCompany(@RequestBody Company ripCompnay) throws NoSuchCompanyException {
-        this.companyRepository.removeCompany(ripCompnay);
+    @DeleteMapping("/{id}")
+    public String removeCompany(@PathVariable Integer id) throws NoSuchCompanyException {
+        this.companyRepository.removeCompany(id);
         return "";
     }
 }
