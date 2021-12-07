@@ -49,4 +49,15 @@ public class CompanyRepository {
 
         this.companies.remove(toBeRemove);
     }
+
+    public Company updateCompany(Company companyPatch) throws NoSuchCompanyException {
+        Company updateCompany = this.companies
+                .stream()
+                .filter(company -> company.getId() == companyPatch.getId())
+                .findFirst()
+                .orElseThrow(() -> new NoSuchCompanyException());
+
+        updateCompany.setName(companyPatch.getName());
+        return updateCompany;
+    }
 }
