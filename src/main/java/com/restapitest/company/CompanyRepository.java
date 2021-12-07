@@ -39,4 +39,14 @@ public class CompanyRepository {
 
         return newCompany;
     }
+
+    public void removeCompany(Company ripCompnay) throws NoSuchCompanyException {
+        Company toBeRemove = this.companies
+                .stream()
+                .filter(company -> company.getId() == ripCompnay.getId())
+                .findFirst()
+                .orElseThrow(() -> new NoSuchCompanyException());
+
+        this.companies.remove(toBeRemove);
+    }
 }
