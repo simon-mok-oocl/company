@@ -27,6 +27,17 @@ public class CompanyController {
         return this.companyRepository.getCompanyById(id);
     }
 
+    @GetMapping("/{id}/employees")
+    public List<Employee> getEmployeeByCompany(@PathVariable Integer id) throws NoSuchCompanyException {
+        return this.companyRepository.getEmployeeByCompany(id);
+    }
+
+    @GetMapping(params = {"page" , "pageSize"})
+    public List<Company> getCompanyByPage(@RequestParam Integer page , @RequestParam Integer pageSize)
+    {
+        return this.companyRepository.getCompanyByPage(page , pageSize);
+    }
+
     @PostMapping
     public ResponseEntity<Company> addCompany(@RequestBody Company company)
     {
