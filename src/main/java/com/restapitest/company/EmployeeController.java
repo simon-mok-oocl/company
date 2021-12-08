@@ -50,9 +50,7 @@ public class EmployeeController {
 
     @PutMapping("/{id}")
     public Employee editEmployeeAgeAndSalary(@PathVariable Integer id , @RequestBody Employee employeePatch) throws NoSuchEmployeeException {
-        Integer age = employeePatch.getAge();
-        Integer salary = employeePatch.getSalary();
-        return this.emplyeeRepository.editEmployeeAgeAndSalary(id , age , salary);
+        return this.emplyeeRepository.updateEmployee(id , employeePatch);
     }
 
     @DeleteMapping("/{id}")

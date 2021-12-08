@@ -57,15 +57,34 @@ public class EmployeeRepository {
         return newEmployee;
     }
 
-    public Employee editEmployeeAgeAndSalary(Integer id, Integer age, Integer salary) throws NoSuchEmployeeException {
-        Employee patchEmployee = this.getEmployeeById(id);
+//    public Employee editEmployeeAgeAndSalary(Integer id, Integer age, Integer salary) throws NoSuchEmployeeException {
+//        Employee patchEmployee = this.getEmployeeById(id);
+//
+//        if(age != null && age != 0)
+//            patchEmployee.setAge(age);
+//        if(salary != null && salary != 0)
+//            patchEmployee.setSalary(salary);
+//
+//        return patchEmployee;
+//    }
 
-        if(age != null && age != 0)
-            patchEmployee.setAge(age);
-        if(salary != null && salary != 0)
-            patchEmployee.setSalary(salary);
+    public Employee updateEmployee(Integer id , Employee employee)
+    {
+        Employee useEmployee = this.getEmployeeById(id);
 
-        return patchEmployee;
+        if(employee.getSalary() != null)
+            useEmployee.setSalary(employee.getSalary());
+        if(employee.getAge() != null)
+            useEmployee.setAge(employee.getAge());
+
+        return this.save(id , useEmployee);
+    }
+
+    public Employee save(Integer id , Employee employee)
+    {
+        this.removeEmployee(id);
+        this.employees.add(employee);
+        return employee;
     }
 
     public void removeEmployee(Integer id) throws NoSuchEmployeeException {
