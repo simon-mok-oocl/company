@@ -41,7 +41,7 @@ public class EmployeeControllerTest {
     @Test
     public void should_get_all_employees_when_getAllEmployees_given_employees() throws Exception {
         // given
-        Employee employee = new Employee(1, "Tom", 20, "male", 10000);
+        Employee employee = new Employee(1, "Tom", 20, "male", 10000 , 1);
         employeeRepository.addEmployee(employee);
 
         // then
@@ -85,7 +85,7 @@ public class EmployeeControllerTest {
     @Test
     public void should_get_correct_employee_when_get_employee_by_id_given_id() throws Exception {
         // given
-        Employee employee = new Employee(1, "Tom", 20, "male", 10000);
+        Employee employee = new Employee(1, "Tom", 20, "male", 10000 , 1);
         employeeRepository.addEmployee(employee);
 
         // when
@@ -104,7 +104,7 @@ public class EmployeeControllerTest {
     @Test
     public void should_get_correct_employee_with_gender_when_get_employee_by_gender_given_gender() throws Exception {
         // given
-        Employee employee = new Employee(1, "Tom", 20, "male", 10000);
+        Employee employee = new Employee(1, "Tom", 20, "male", 10000 , 1);
         employeeRepository.addEmployee(employee);
 
         // when
@@ -123,10 +123,10 @@ public class EmployeeControllerTest {
     @Test
     public void should_get_correct_page_when_get_employee_by_page_given_page_and_pagesize() throws Exception {
         // given
-        Employee employee1 = new Employee(1, "Tom1", 20, "male", 10000);
-        Employee employee2 = new Employee(2, "Tom2", 20, "male", 10000);
-        Employee employee3 = new Employee(3, "Tom3", 20, "male", 10000);
-        Employee employee4 = new Employee(4, "Tom4", 20, "male", 10000);
+        Employee employee1 = new Employee(1, "Tom1", 20, "male", 10000 , 1);
+        Employee employee2 = new Employee(2, "Tom2", 20, "male", 10000 , 1);
+        Employee employee3 = new Employee(3, "Tom3", 20, "male", 10000 , 1);
+        Employee employee4 = new Employee(4, "Tom4", 20, "male", 10000 , 1);
         employeeRepository.addEmployee(employee1);
         employeeRepository.addEmployee(employee2);
         employeeRepository.addEmployee(employee3);
@@ -153,7 +153,7 @@ public class EmployeeControllerTest {
     @Test
     public void should_update_employee_when_updateEmployee_given_id_and_employee() throws Exception {
         // given
-        Employee employee = new Employee(1, "Tom", 20, "male", 10000);
+        Employee employee = new Employee(1, "Tom", 20, "male", 10000 , 1);
         employeeRepository.addEmployee(employee);
 
         String updateEmployee = "{\n" +
@@ -183,7 +183,7 @@ public class EmployeeControllerTest {
     @Test
     public void should_return_nothing_when_delete_given_id() throws Exception {
         // given
-        Employee employee = new Employee(1, "Tom", 20, "male", 10000);
+        Employee employee = new Employee(1, "Tom", 20, "male", 10000 , 1);
         employeeRepository.addEmployee(employee);
 
         // when

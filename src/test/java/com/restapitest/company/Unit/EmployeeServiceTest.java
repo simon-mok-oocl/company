@@ -29,7 +29,7 @@ public class EmployeeServiceTest {
     @Test
     public void should_return_employee_list_when_getEmployeeList()
     {
-        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100);
+        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100 ,1 );
         List<Employee> employees = new ArrayList<>();
         employees.add(employee);
         given(employeeRepository.getEmployeeList()).willReturn(employees);
@@ -43,7 +43,7 @@ public class EmployeeServiceTest {
     @Test
     public void should_return_correct_employee_list_when_getEmployee_given_id()
     {
-        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100);
+        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100 , 1);
         given(employeeRepository.getEmployeeById(any())).willReturn(employee);
 
         Employee actual = employeeService.getEmployeeById(1);
@@ -55,7 +55,7 @@ public class EmployeeServiceTest {
     @Test
     public void should_return_correct_gender_list_when_getEmployeeByGender_given_gender()
     {
-        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100);
+        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100 , 1);
         List<Employee> male = new ArrayList<>();
         male.add(employee);
         given(employeeRepository.getEmployeeByGender(any())).willReturn(male);
@@ -70,11 +70,11 @@ public class EmployeeServiceTest {
     void should_return_edited_employee_when_editEmployee_given_employee_patch()
     {
         // given
-        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100);
+        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100 ,1 );
         given(employeeRepository.getEmployeeById(any())).willReturn(employee);
 
 
-        Employee employeePatch = new Employee(1 , "employee 1" , 11 , "male" , 200);
+        Employee employeePatch = new Employee(1 , "employee 1" , 11 , "male" , 200 ,1 );
         employee.setAge(11);
         employee.setSalary(200);
         given(employeeRepository.save(any(),any())).willReturn(employee);
@@ -90,7 +90,7 @@ public class EmployeeServiceTest {
     void should_return_deleted_employee_when_delete_employee_given_employee()
     {
         // given
-        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100);
+        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100,1);
         given(employeeRepository.removeEmployee(any())).willReturn(employee);
 
         // when
@@ -104,7 +104,7 @@ public class EmployeeServiceTest {
     void should_return_new_employee_when_addEmployee_given_new_employee()
     {
         // given
-        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100);
+        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100,1);
         given(employeeRepository.addEmployee(any())).willReturn(employee);
 
         // when

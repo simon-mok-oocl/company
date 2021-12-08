@@ -36,7 +36,7 @@ public class CompanyControllerTest {
     @Test
     public void should_get_all_companies_when_getAllCompanies_given_companies() throws Exception {
         // given
-        Company company = new Company(1, "spring" , Collections.singletonList(new Employee(1, "Lily1", 20, "Female", 8000)));
+        Company company = new Company(1, "spring" , Collections.singletonList(new Employee(1, "Lily1", 20, "Female", 8000 ,1 )));
         companyRepository.addCompany(company);
 
         // when
