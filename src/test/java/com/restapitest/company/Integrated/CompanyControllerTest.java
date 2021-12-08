@@ -152,41 +152,26 @@ public class CompanyControllerTest {
 //
 //    }
 //
-//    @Test
-//    public void should_create_company_when_createCompany_given_company() throws Exception {
-//        // given
-//        String company = "{\n" +
-//                "        \"id\": 1,\n" +
-//                "        \"companyName\": \"spring\",\n" +
-//                "        \"employees\": [\n" +
-//                "            {\n" +
-//                "                \"id\": 1,\n" +
-//                "                \"name\": \"Lily1\",\n" +
-//                "                \"age\": 20,\n" +
-//                "                \"gender\": \"Female\",\n" +
-//                "                \"salary\": 8000\n" +
-//                "            }\n" +
-//                "        ]\n" +
-//                "    }";
-//
-//        // when
-//
-//        // then
-//        mockMvc.perform(MockMvcRequestBuilders.post("/companies")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(company))
-//                .andExpect(MockMvcResultMatchers.status().isCreated())
-//                .andExpect(jsonPath("$.id").isNumber())
-//                .andExpect(jsonPath("$.companyName").value("spring"))
-//                .andExpect(jsonPath("$.employees", hasSize(1)))
-//                .andExpect(jsonPath("$.employees[0].name").value("Lily1"))
-//                .andExpect(jsonPath("$.employees[0].age").value(20))
-//                .andExpect(jsonPath("$.employees[0].gender").value("Female"))
-//                .andExpect(jsonPath("$.employees[0].salary").value(8000));
-//
-//    }
-//
-//
+    @Test
+    public void should_create_company_when_createCompany_given_company() throws Exception {
+        // given
+        String company = "{\n" +
+                "        \"name\": \"spring\"" +
+                "    }";
+
+        // when
+
+        // then
+        mockMvc.perform(MockMvcRequestBuilders.post("/companies")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(company))
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(jsonPath("$.id").isNumber())
+                .andExpect(jsonPath("$.name").value("spring"));
+
+    }
+
+
     @Test
     public void should_update_comapny_when_updateCompany_given_company() throws Exception {
         // given

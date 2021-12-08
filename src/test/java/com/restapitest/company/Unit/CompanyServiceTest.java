@@ -71,4 +71,16 @@ public class CompanyServiceTest {
 
     }
 
+    @Test
+    public void should_add_company_when_addCompany_given_company()
+    {
+        Company company = new Company(1, "spring");
+        given(companyRepository.addCompany(any())).willReturn(company);
+
+        Company actual = companyService.addCompany(company);
+
+        assertEquals(company , actual);
+
+    }
+
 }

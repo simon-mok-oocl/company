@@ -36,6 +36,13 @@ public class CompanyController {
         return this.companyService.getCompanyById(id);
     }
 
+    @PostMapping
+    public ResponseEntity<Company> addCompany(@RequestBody Company company)
+    {
+        this.companyService.addCompany(company);
+        return new ResponseEntity<Company>(company , HttpStatus.CREATED);
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////
 //
 //    @GetMapping
@@ -56,12 +63,7 @@ public class CompanyController {
 //        return this.companyRepository.getCompanyByPage(page , pageSize);
 //    }
 //
-//    @PostMapping
-//    public ResponseEntity<Company> addCompany(@RequestBody Company company)
-//    {
-//        this.companyRepository.addCompany(company);
-//        return new ResponseEntity<Company>(company , HttpStatus.CREATED);
-//    }
+
 //
 //    @PutMapping("/{id}")
 //    public Company updateCompany(@PathVariable Integer id , @RequestBody Company company) throws NoSuchCompanyException {

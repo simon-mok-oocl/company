@@ -50,4 +50,7 @@ public class CompanyService {
     }
 
 
+    public Company addCompany(Company company) {
+        return this.companyRepository.addCompany(company);
+    }
 }
