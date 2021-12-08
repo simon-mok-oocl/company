@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -186,38 +187,38 @@ public class CompanyControllerTest {
 //    }
 //
 //
-//    @Test
-//    public void should_update_comapny_when_updateCompany_given_company() throws Exception {
-//        // given
-//        Company company1 = new Company(1, "spring");
-//        company1.setEmployees(Collections.singletonList(new Employee(1, "Lily1", 20, "Female", 8000)));
-//        companyRepository.create(company1);
-//
-//        String newCompany = "{\n" +
-//                "        \"id\": 1,\n" +
-//                "        \"companyName\": \"new spring\",\n" +
-//                "        \"employees\": [\n" +
-//                "            {\n" +
-//                "                \"id\": 1,\n" +
-//                "                \"name\": \"Lily1\",\n" +
-//                "                \"age\": 20,\n" +
-//                "                \"gender\": \"Female\",\n" +
-//                "                \"salary\": 8000\n" +
-//                "            }\n" +
-//                "        ]\n" +
-//                "    }";
-//
-//        // when
-//
-//        // then
-//        mockMvc.perform((MockMvcRequestBuilders.put("/companies/{id}" , company1.getId()))
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(newCompany))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(jsonPath("$.id").value(1))
-//                .andExpect(jsonPath("$.companyName").value("new spring"));
-//
-//    }
+    @Test
+    public void should_update_comapny_when_updateCompany_given_company() throws Exception {
+        // given
+        Company company1 = new Company(1, "spring");
+        this.employeeRepository.addEmployee(new Employee(1, "Lily1", 20, "Female", 8000 , 1));
+        companyRepository.addCompany(company1);
+
+        String newCompany = "{\n" +
+                "        \"id\": 1,\n" +
+                "        \"name\": \"new spring\",\n" +
+                "        \"employee\": [\n" +
+                "            {\n" +
+                "                \"id\": 1,\n" +
+                "                \"name\": \"Lily1\",\n" +
+                "                \"age\": 20,\n" +
+                "                \"gender\": \"Female\",\n" +
+                "                \"salary\": 8000\n" +
+                "            }\n" +
+                "        ]\n" +
+                "    }";
+
+        // when
+
+        // then
+        mockMvc.perform((MockMvcRequestBuilders.put("/companies/{id}" , company1.getId()))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(newCompany))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.name").value("new spring"));
+
+    }
 //
 //    @Test
 //    public void should_delete_company_with_id_when_deleteCompanyById_given_id() throws Exception {

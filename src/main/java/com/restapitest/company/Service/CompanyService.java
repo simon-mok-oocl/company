@@ -24,7 +24,8 @@ public class CompanyService {
         if(company.getName() != null)
             useCompany.setName(company.getName());
 
-        return this.companyRepository.save(id , useCompany);
+        this.companyRepository.save(id , useCompany);
+        return this.getCompanyById(id);
     }
 
     public List<Company> getCompanies() {
@@ -38,4 +39,15 @@ public class CompanyService {
 
         return this.companyRepository.getCompanies();
     }
+
+    public Company getCompanyById(Integer id) {
+        Company company = this.companyRepository.getCompanyById(id);
+
+        List<Employee> employees = this.employeeRepository.getEmployeeByCompany(id);
+        company.setEmployee(employees);
+
+        return company;
+    }
+
+
 }
