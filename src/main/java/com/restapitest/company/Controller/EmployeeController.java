@@ -42,6 +42,12 @@ public class EmployeeController {
         return this.employeeService.getEmployeeByGender(gender);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Employee> deleteEmployee(@PathVariable Integer id) throws NoSuchEmployeeException {
+        this.employeeService.removeEmployee(id);
+        return new ResponseEntity<Employee>( (Employee) null , HttpStatus.NO_CONTENT);
+    }
+
 ///////////////////////////////////////////////////////////////////////////////
 //    @GetMapping("/{id}")
 //    public Employee getEmployeeById(@PathVariable Integer id) throws NoSuchEmployeeException {

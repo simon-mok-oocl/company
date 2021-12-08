@@ -78,10 +78,12 @@ public class EmployeeRepository {
         return employee;
     }
 
-    public void removeEmployee(Integer id) throws NoSuchEmployeeException {
+    public Employee removeEmployee(Integer id) throws NoSuchEmployeeException {
         Employee toBeRemove = this.getEmployeeById(id);
 
         this.employees.remove(toBeRemove);
+
+        return toBeRemove;
     }
 
     public void clearAll() {

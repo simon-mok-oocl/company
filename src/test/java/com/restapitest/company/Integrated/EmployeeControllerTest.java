@@ -183,7 +183,7 @@ public class EmployeeControllerTest {
 //    public void should_return_nothing_when_delete_given_id() throws Exception {
 //        // given
 //        Employee employee = new Employee(1, "Tom", 20, "male", 10000);
-//        employeeRepository.create(employee);
+//        employeeRepository.addEmployee(employee);
 //
 //        // when
 //
@@ -192,4 +192,18 @@ public class EmployeeControllerTest {
 //                .andExpect(status().isNoContent());
 //
 //    }
+
+    @Test
+    public void should_return_nothing_when_delete_given_id() throws Exception {
+        // given
+        Employee employee = new Employee(1, "Tom", 20, "male", 10000);
+        employeeRepository.addEmployee(employee);
+
+        // when
+
+        // then
+        mockMvc.perform(MockMvcRequestBuilders.delete("/employees/{id}" , employee.getId()))
+                .andExpect(status().isNoContent());
+
+    }
 }

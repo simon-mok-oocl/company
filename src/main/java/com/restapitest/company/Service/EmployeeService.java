@@ -37,4 +37,8 @@ public class EmployeeService {
     public List<Employee> getEmployeeByGender(String gender) {
         return this.employeeRepository.getEmployeeByGender(gender);
     }
+
+    public Employee removeEmployee(Integer id) {
+        return this.employeeRepository.removeEmployee(id);
+    }
 }

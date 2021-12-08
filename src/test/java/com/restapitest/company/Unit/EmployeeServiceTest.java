@@ -86,4 +86,18 @@ public class EmployeeServiceTest {
         assertEquals(employeePatch , patchedEmployee);
     }
 
+    @Test
+    void should_return_deleted_employee_when_delete_employee_given_employee()
+    {
+        // given
+        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100);
+        given(employeeRepository.removeEmployee(any())).willReturn(employee);
+
+        // when
+        Employee removedEmployee = employeeService.removeEmployee(1);
+
+        // then
+        assertEquals(employee , removedEmployee);
+    }
+
 }
