@@ -41,10 +41,12 @@ public class CompanyRepository {
         return newCompany;
     }
 
-    public void removeCompany(Integer id) throws NoSuchCompanyException {
+    public Company removeCompany(Integer id) throws NoSuchCompanyException {
         Company toBeRemove = this.getCompanyById(id);
 
         this.companies.remove(toBeRemove);
+
+        return toBeRemove;
     }
 
 

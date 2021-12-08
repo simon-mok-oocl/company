@@ -55,16 +55,17 @@ public class CompanyController {
         return this.companyService.getCompanyByPage(page , pageSize);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Company> removeCompany(@PathVariable Integer id) throws NoSuchCompanyException {
+        this.companyService.removeCompany(id);
+        return new ResponseEntity<Company>((Company) null, HttpStatus.NO_CONTENT);
+    }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //
 
 
 
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Company> removeCompany(@PathVariable Integer id) throws NoSuchCompanyException {
-//        this.companyRepository.removeCompany(id);
-//        return new ResponseEntity<Company>((Company) null, HttpStatus.NO_CONTENT);
-//        //return "";
-//    }
+
 }

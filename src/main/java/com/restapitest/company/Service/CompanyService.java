@@ -67,4 +67,8 @@ public class CompanyService {
         }
         return companies;
     }
+
+    public Company removeCompany(Integer id) {
+        return this.companyRepository.removeCompany(id);
+    }
 }

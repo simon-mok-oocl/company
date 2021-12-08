@@ -109,5 +109,16 @@ public class CompanyServiceTest {
 
     }
 
+    @Test
+    public void should_return_company_when_deleteCompany_given_company()
+    {
+        Company company = new Company(1, "spring");
 
+        given(companyRepository.removeCompany(any())).willReturn(company);
+
+        Company actual = companyService.removeCompany(1);
+
+        assertEquals(company , actual);
+
+    }
 }

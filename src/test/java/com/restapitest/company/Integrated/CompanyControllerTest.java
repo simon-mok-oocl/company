@@ -206,20 +206,19 @@ public class CompanyControllerTest {
                 .andExpect(jsonPath("$.name").value("new spring"));
 
     }
-//
-//    @Test
-//    public void should_delete_company_with_id_when_deleteCompanyById_given_id() throws Exception {
-//        // given
-//        Company company = new Company(1, "spring");
-//        company.setEmployees(Collections.singletonList(new Employee(1, "Lily1", 20, "Female", 8000)));
-//        companyRepository.create(company);
-//
-//        // when
-//
-//        // then
-//        mockMvc.perform((MockMvcRequestBuilders.delete("/companies/{id}", company.getId())))
-//                .andExpect(MockMvcResultMatchers.status().isNoContent());
-//
-//    }
+
+    @Test
+    public void should_delete_company_with_id_when_deleteCompanyById_given_id() throws Exception {
+        // given
+        Company company = new Company(1, "spring");
+        companyRepository.addCompany(company);
+
+        // when
+
+        // then
+        mockMvc.perform((MockMvcRequestBuilders.delete("/companies/{id}", company.getId())))
+                .andExpect(MockMvcResultMatchers.status().isNoContent());
+
+    }
 
 }
