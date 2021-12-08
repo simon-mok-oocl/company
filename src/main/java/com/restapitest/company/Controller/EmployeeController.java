@@ -55,21 +55,11 @@ public class EmployeeController {
         return new ResponseEntity<Employee>(newEmployee, HttpStatus.CREATED);
     }
 
-///////////////////////////////////////////////////////////////////////////////
 
-//
-//    @GetMapping(params = {"page" , "pageSize"})
-//    public List<Employee> getEmployeeInPage(@RequestParam Integer page , @RequestParam Integer pageSize)
-//    {
-//        return this.emplyeeRepository.getEmployeeInPage(page , pageSize);
-//    }
-//
-//    @PostMapping
-//    public ResponseEntity<Employee> createEmployee(@RequestBody Employee newEmployee)
-//    {
-//        this.emplyeeRepository.addEmployee(newEmployee);
-//        return new ResponseEntity<Employee>(newEmployee, HttpStatus.CREATED);
-//    }
-
+    @GetMapping(params = {"page" , "pageSize"})
+    public List<Employee> getEmployeeInPage(@RequestParam Integer page , @RequestParam Integer pageSize)
+    {
+        return this.employeeService.getEmployeeInPage(page , pageSize);
+    }
 
 }

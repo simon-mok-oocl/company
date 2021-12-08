@@ -45,4 +45,8 @@ public class EmployeeService {
     public Employee addEmployee(Employee newEmployee) {
         return this.employeeRepository.addEmployee(newEmployee);
     }
+
+    public List<Employee> getEmployeeInPage(Integer page, Integer pageSize) {
+        return this.employeeRepository.getEmployeeInPage(page , pageSize);
+    }
 }
