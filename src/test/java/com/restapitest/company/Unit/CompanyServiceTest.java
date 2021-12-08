@@ -37,7 +37,7 @@ public class CompanyServiceTest {
 //
 //        assertEquals(employees , actual);
 
-        Company company = new Company(1, "spring" , Collections.singletonList(new Employee(1, "Lily1", 20, "Female", 8000 , 1)));
+        Company company = new Company(1, "spring");
         List<Company> companies = new ArrayList<>();
         companies.add(company);
         given(companyRepository.getCompanies()).willReturn(companies);

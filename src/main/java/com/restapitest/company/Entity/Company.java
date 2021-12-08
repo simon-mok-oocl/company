@@ -7,10 +7,10 @@ public class Company {
     private String name;
     private List<Employee> employee;
 
-    public Company(Integer id, String name, List<Employee> employee) {
+    public Company(Integer id, String name) {
         this.id = id;
         this.name = name;
-        this.employee = employee;
+        this.employee = null;
     }
 
     public Integer getId() {

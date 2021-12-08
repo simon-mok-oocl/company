@@ -27,9 +27,9 @@ public class CompanyRepository {
         Employee company3Employee1 = new Employee(1 , "c3e1" , 20 , "male" , 10 , 2);
         Employee company3Employee2 = new Employee(2 , "c3e2" , 40 , "female" , 15 , 2);
 
-        companies.add(new Company(1 , "company 1" , Arrays.asList(company1Employee1 , company1Employee2)));
-        companies.add(new Company(2 , "company 2" , Arrays.asList(company2Employee1 , company2Employee2)));
-        companies.add(new Company(3 , "company 3" , Arrays.asList(company3Employee1 , company3Employee2)));
+        companies.add(new Company(1 , "company 1"));
+        companies.add(new Company(2 , "company 2" ));
+        companies.add(new Company(3 , "company 3"));
     }
 
     public List<Company> getCompanies() {
