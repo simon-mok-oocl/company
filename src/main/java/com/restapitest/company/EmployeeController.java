@@ -56,9 +56,9 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteEmployee(@PathVariable Integer id) throws NoSuchEmployeeException {
+    public ResponseEntity<Employee> deleteEmployee(@PathVariable Integer id) throws NoSuchEmployeeException {
         this.emplyeeRepository.removeEmployee(id);
-        return "";
+        return new ResponseEntity<Employee>( (Employee) null , HttpStatus.NO_CONTENT);
     }
 
 }

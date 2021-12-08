@@ -58,12 +58,7 @@ public class EmployeeRepository {
     }
 
     public Employee editEmployeeAgeAndSalary(Integer id, Integer age, Integer salary) throws NoSuchEmployeeException {
-        Employee patchEmployee = this.employees
-                .stream()
-                .filter(employee -> employee.getId() == id)
-                .findFirst()
-                .orElseThrow(() -> new NoSuchEmployeeException());
-
+        Employee patchEmployee = this.getEmployeeById(id);
         patchEmployee.setAge(age);
         patchEmployee.setSalary(salary);
 
@@ -71,11 +66,7 @@ public class EmployeeRepository {
     }
 
     public void removeEmployee(Integer id) throws NoSuchEmployeeException {
-        Employee toBeRemove = this.employees
-                .stream()
-                .filter(employee -> employee.getId() == id)
-                .findFirst()
-                .orElseThrow(() -> new NoSuchEmployeeException());
+        Employee toBeRemove = this.getEmployeeById(id);
 
         this.employees.remove(toBeRemove);
     }

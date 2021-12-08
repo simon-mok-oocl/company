@@ -46,21 +46,13 @@ public class CompanyRepository {
     }
 
     public void removeCompany(Integer id) throws NoSuchCompanyException {
-        Company toBeRemove = this.companies
-                .stream()
-                .filter(company -> company.getId() == id)
-                .findFirst()
-                .orElseThrow(() -> new NoSuchCompanyException());
+        Company toBeRemove = this.getCompanyById(id);
 
         this.companies.remove(toBeRemove);
     }
 
     public Company updateCompany(Integer id , Company companyPatch) throws NoSuchCompanyException {
-        Company updateCompany = this.companies
-                .stream()
-                .filter(company -> company.getId() == id)
-                .findFirst()
-                .orElseThrow(() -> new NoSuchCompanyException());
+        Company updateCompany = this.getCompanyById(id);
 
         updateCompany.setName(companyPatch.getName());
         return updateCompany;
@@ -74,11 +66,7 @@ public class CompanyRepository {
     }
 
     public List<Employee> getEmployeeByCompany(Integer id) throws NoSuchCompanyException {
-        Company useCompany = this.companies
-                .stream()
-                .filter(company -> company.getId() == id)
-                .findFirst()
-                .orElseThrow(() -> new NoSuchCompanyException());
+        Company useCompany = this.getCompanyById(id);
 
         return useCompany.getEmployee();
     }
