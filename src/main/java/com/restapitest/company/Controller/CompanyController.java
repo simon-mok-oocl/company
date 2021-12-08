@@ -26,10 +26,10 @@ public class CompanyController {
         return this.companyService.getCompanies();
     }
 
-    @PutMapping("/{id}")
-    public Company updateCompany(@PathVariable Integer id , @RequestBody Company company) throws NoSuchCompanyException {
-        return this.companyService.updateCompany(id , company);
-    }
+//    @PutMapping("/{id}")
+//    public Company updateCompany(@PathVariable Integer id , @RequestBody Company company) throws NoSuchCompanyException {
+//        return this.companyService.updateCompany(id , company);
+//    }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //

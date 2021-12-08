@@ -3,6 +3,7 @@ package com.restapitest.company.Integrated;
 import com.restapitest.company.Entity.Company;
 import com.restapitest.company.Entity.Employee;
 import com.restapitest.company.Repository.CompanyRepository;
+import com.restapitest.company.Repository.EmployeeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,16 +29,22 @@ public class CompanyControllerTest {
     @Autowired
     private CompanyRepository companyRepository;
 
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
     @BeforeEach
     void setUp() {
         companyRepository.clearAll();
+        employeeRepository.clearAll();
     }
 
     @Test
     public void should_get_all_companies_when_getAllCompanies_given_companies() throws Exception {
         // given
         Company company = new Company(1, "spring");
+        Employee employee = new Employee(1 , "Lily1" , 20 , "female" , 8000 , 1);
         companyRepository.addCompany(company);
+        employeeRepository.addEmployee(employee);
 
         // when
 
@@ -50,7 +57,7 @@ public class CompanyControllerTest {
                 .andExpect(jsonPath("$[0].employee", hasSize(1)))
                 .andExpect(jsonPath("$[0].employee[0].name").value("Lily1"))
                 .andExpect(jsonPath("$[0].employee[0].age").value(20))
-                .andExpect(jsonPath("$[0].employee[0].gender").value("Female"))
+                .andExpect(jsonPath("$[0].employee[0].gender").value("female"))
                 .andExpect(jsonPath("$[0].employee[0].salary").value(8000));
 
     }
