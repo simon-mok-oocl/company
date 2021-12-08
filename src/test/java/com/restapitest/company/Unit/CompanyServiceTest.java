@@ -1,7 +1,6 @@
 package com.restapitest.company.Unit;
 
 import com.restapitest.company.Entity.Company;
-import com.restapitest.company.Entity.Employee;
 import com.restapitest.company.Repository.CompanyRepository;
 import com.restapitest.company.Repository.EmployeeRepository;
 import com.restapitest.company.Service.CompanyService;
@@ -12,7 +11,6 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -82,5 +80,34 @@ public class CompanyServiceTest {
         assertEquals(company , actual);
 
     }
+
+//    @Test
+//    public void should_return_employee_when_getEmployeeByCompany_given_company_id()
+//    {
+//        Employee employee = new Employee(1 , "employee1" , 11 , "male" , 100 , 1);
+//        List<Employee> employees = new ArrayList<>();
+//        employees.add(employee);
+//        employeeRepository.addEmployee(employee);
+//        given(companyRepository.getEmployeeByCompany(any())).willReturn(employees);
+//
+//        List<Employee> actual = companyService.getEmployeeByCompany(1);
+//
+//        assertEquals(employees , actual);
+//    }
+
+    @Test
+    public void should_return_company_page_when_getCompanyByPage_given_page_pageSize()
+    {
+        Company company = new Company(1, "spring");
+        List<Company> companies = new ArrayList<>();
+        companies.add(company);
+        given(companyRepository.getCompanyByPage(any() , any())).willReturn(companies);
+
+        List<Company> actual = companyService.getCompanyByPage(1,1);
+
+        assertEquals(companies , actual);
+
+    }
+
 
 }

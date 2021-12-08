@@ -84,28 +84,28 @@ public class CompanyControllerTest {
                 .andExpect(jsonPath("$.employee[0].salary").value(8000));
 
     }
-//
-//    @Test
-//    public void should_get_all_employees_under_company_when_getAllEmployeesByCompanyId_given_id() throws Exception {
-//        // given
-//        Company company = new Company(1, "spring");
-//        company.setEmployees(Collections.singletonList(new Employee(1, "Lily1", 20, "Female", 8000)));
-//        companyRepository.create(company);
-//
-//        // when
-//
-//        // then
-//        mockMvc.perform(MockMvcRequestBuilders.get("/companies/{id}/employees", company.getId()))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(jsonPath("$",hasSize(1)))
-//                .andExpect(jsonPath("$[0].id").isNumber())
-//                .andExpect(jsonPath("$[0].name").value("Lily1"))
-//                .andExpect(jsonPath("$[0].age").value(20))
-//                .andExpect(jsonPath("$[0].gender").value("Female"))
-//                .andExpect(jsonPath("$[0].salary").value(8000));
-//
-//    }
-//
+
+    @Test
+    public void should_get_all_employees_under_company_when_getAllEmployeesByCompanyId_given_id() throws Exception {
+        // given
+        Company company = new Company(1, "spring");
+       this.employeeRepository.addEmployee( new Employee(1, "Lily1", 20, "Female", 8000 , 1));
+        companyRepository.addCompany(company);
+
+        // when
+
+        // then
+        mockMvc.perform(MockMvcRequestBuilders.get("/companies/{id}/employees", company.getId()))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(jsonPath("$",hasSize(1)))
+                .andExpect(jsonPath("$[0].id").isNumber())
+                .andExpect(jsonPath("$[0].name").value("Lily1"))
+                .andExpect(jsonPath("$[0].age").value(20))
+                .andExpect(jsonPath("$[0].gender").value("Female"))
+                .andExpect(jsonPath("$[0].salary").value(8000));
+
+    }
+
 //
 //    @Test
 //    public void should_company_in_page_when_getAllEmployeesByCompanyId_given_id() throws Exception {
@@ -128,30 +128,32 @@ public class CompanyControllerTest {
 //
 //    }
 //
-//    @Test
-//    public void should_comapny_in_page_under_company_when_getAllCompanyByPage_given_page_pageSize() throws Exception {
-//        // given
+    @Test
+    public void should_comapny_in_page_under_company_when_getAllCompanyByPage_given_page_pageSize() throws Exception {
+        // given
 //        Company company1 = new Company(1, "spring");
 //        company1.setEmployees(Collections.singletonList(new Employee(1, "Lily1", 20, "Female", 8000)));
 //        companyRepository.create(company1);
-//
-//        Company company2 = new Company(2, "spring2");
-//        Company company3 = new Company(3, "spring3");
-//
-//        companyRepository.create(company2);
-//        companyRepository.create(company3);
-//
-//        // when
-//
-//        // then
-//        mockMvc.perform((MockMvcRequestBuilders.get("/companies").param("page", "1")).param("pageSize" , "2"))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(jsonPath("$",hasSize(1)))
-//                .andExpect(jsonPath("$[0].id").value(3))
-//                .andExpect(jsonPath("$[0].employees" , hasSize(0)));
-//
-//    }
-//
+
+        Company company1 = new Company(2, "spring1");
+        Company company2 = new Company(2, "spring2");
+        Company company3 = new Company(3, "spring3");
+
+        companyRepository.addCompany(company1);
+        companyRepository.addCompany(company2);
+        companyRepository.addCompany(company3);
+
+        // when
+
+        // then
+        mockMvc.perform((MockMvcRequestBuilders.get("/companies").param("page", "2")).param("pageSize" , "2"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(jsonPath("$",hasSize(1)))
+                .andExpect(jsonPath("$[0].id").value(3))
+                .andExpect(jsonPath("$[0].employee" , hasSize(0)));
+
+    }
+
     @Test
     public void should_create_company_when_createCompany_given_company() throws Exception {
         // given

@@ -43,33 +43,24 @@ public class CompanyController {
         return new ResponseEntity<Company>(company , HttpStatus.CREATED);
     }
 
+    @GetMapping("/{id}/employees")
+    public List<Employee> getEmployeeByCompany(@PathVariable Integer id) {
+        return this.companyService.getEmployeeByCompany(id);
+    }
+
+
+    @GetMapping(params = {"page" , "pageSize"})
+    public List<Company> getCompanyByPage(@RequestParam Integer page , @RequestParam Integer pageSize)
+    {
+        return this.companyService.getCompanyByPage(page , pageSize);
+    }
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
 //
-//    @GetMapping
-//    public List<Company> getCompanyList()
-//    {
-//        return companyRepository.getCompanies();
-//    }
 
-//
-//    @GetMapping("/{id}/employees")
-//    public List<Employee> getEmployeeByCompany(@PathVariable Integer id) {
-//        return this.companyRepository.getEmployeeByCompany(id);
-//    }
-//
-//    @GetMapping(params = {"page" , "pageSize"})
-//    public List<Company> getCompanyByPage(@RequestParam Integer page , @RequestParam Integer pageSize)
-//    {
-//        return this.companyRepository.getCompanyByPage(page , pageSize);
-//    }
-//
 
-//
-//    @PutMapping("/{id}")
-//    public Company updateCompany(@PathVariable Integer id , @RequestBody Company company) throws NoSuchCompanyException {
-//        return this.companyRepository.updateCompany(id , company);
-//    }
-//
+
 //    @DeleteMapping("/{id}")
 //    public ResponseEntity<Company> removeCompany(@PathVariable Integer id) throws NoSuchCompanyException {
 //        this.companyRepository.removeCompany(id);

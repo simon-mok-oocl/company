@@ -23,8 +23,8 @@ public class EmployeeRepository {
         Employee company2Employee1 = new Employee(1 , "c2e1" , 20 , "male" , 10 , 2);
         Employee company2Employee2 = new Employee(2 , "c2e2" , 40 , "female" , 15 , 2);
 
-        Employee company3Employee1 = new Employee(1 , "c3e1" , 20 , "male" , 10 , 2);
-        Employee company3Employee2 = new Employee(2 , "c3e2" , 40 , "female" , 15 , 2);
+        Employee company3Employee1 = new Employee(1 , "c3e1" , 20 , "male" , 10 , 3);
+        Employee company3Employee2 = new Employee(2 , "c3e2" , 40 , "female" , 15 , 3);
 
         employees.add(company1Employee1);
         employees.add(company1Employee2);

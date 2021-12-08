@@ -53,4 +53,18 @@ public class CompanyService {
     public Company addCompany(Company company) {
         return this.companyRepository.addCompany(company);
     }
+
+    public List<Employee> getEmployeeByCompany(Integer id) {
+        return this.employeeRepository.getEmployeeByCompany(id);
+    }
+
+    public List<Company> getCompanyByPage(Integer page, Integer pageSize) {
+        List<Company> companies =  this.companyRepository.getCompanyByPage(page , pageSize);
+        for(Company company : companies)
+        {
+            List<Employee> employees = this.employeeRepository.getEmployeeByCompany(company.getId());
+            company.setEmployee(employees);
+        }
+        return companies;
+    }
 }
