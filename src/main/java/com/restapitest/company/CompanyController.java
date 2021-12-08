@@ -51,8 +51,9 @@ public class CompanyController {
     }
 
     @DeleteMapping("/{id}")
-    public String removeCompany(@PathVariable Integer id) throws NoSuchCompanyException {
+    public ResponseEntity<Company> removeCompany(@PathVariable Integer id) throws NoSuchCompanyException {
         this.companyRepository.removeCompany(id);
-        return "";
+        return new ResponseEntity<Company>((Company) null, HttpStatus.NO_CONTENT);
+        //return "";
     }
 }
