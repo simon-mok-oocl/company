@@ -21,6 +21,22 @@ public class EmployeeRepository {
 //        employees.add(new Employee(3 , "employee3" , 22 , "male" , 3000 ,1));
 //        employees.add(new Employee(4 , "employee4" , 23 , "female" , 4000 , 1));
 //        employees.add(new Employee(5 , "employee5" , 24 , "male" , 5000 ,1 ));
+
+        Employee company1Employee1 = new Employee(1 , "c1e1" , 20 , "male" , 10 , 1);
+        Employee company1Employee2 = new Employee(2 , "c1e2" , 30 , "female" , 11 , 1);
+
+        Employee company2Employee1 = new Employee(1 , "c2e1" , 20 , "male" , 10 , 2);
+        Employee company2Employee2 = new Employee(2 , "c2e2" , 40 , "female" , 15 , 2);
+
+        Employee company3Employee1 = new Employee(1 , "c3e1" , 20 , "male" , 10 , 2);
+        Employee company3Employee2 = new Employee(2 , "c3e2" , 40 , "female" , 15 , 2);
+
+        employees.add(company1Employee1);
+        employees.add(company1Employee2);
+        employees.add(company2Employee1);
+        employees.add(company2Employee2);
+        employees.add(company3Employee1);
+        employees.add(company3Employee2);
     }
 
     public List<Employee> getEmployeeList()
