@@ -1,6 +1,4 @@
-package com.restapitest.company;
-
-import org.springframework.stereotype.Repository;
+package com.restapitest.company.Entity;
 
 import java.util.List;
 

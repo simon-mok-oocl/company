@@ -1,6 +1,8 @@
-package com.restapitest.company;
+package com.restapitest.company.Repository;
 
 
+import com.restapitest.company.Entity.Employee;
+import com.restapitest.company.Exception.NoSuchEmployeeException;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -57,17 +59,6 @@ public class EmployeeRepository {
         return newEmployee;
     }
 
-//    public Employee editEmployeeAgeAndSalary(Integer id, Integer age, Integer salary) throws NoSuchEmployeeException {
-//        Employee patchEmployee = this.getEmployeeById(id);
-//
-//        if(age != null && age != 0)
-//            patchEmployee.setAge(age);
-//        if(salary != null && salary != 0)
-//            patchEmployee.setSalary(salary);
-//
-//        return patchEmployee;
-//    }
-
     public Employee updateEmployee(Integer id , Employee employee)
     {
         Employee useEmployee = this.getEmployeeById(id);
@@ -91,5 +82,9 @@ public class EmployeeRepository {
         Employee toBeRemove = this.getEmployeeById(id);
 
         this.employees.remove(toBeRemove);
+    }
+
+    public void clearAll() {
+        this.employees.clear();
     }
 }

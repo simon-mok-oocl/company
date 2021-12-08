@@ -1,5 +1,9 @@
-package com.restapitest.company;
+package com.restapitest.company.Controller;
 
+import com.restapitest.company.Entity.Company;
+import com.restapitest.company.Repository.CompanyRepository;
+import com.restapitest.company.Entity.Employee;
+import com.restapitest.company.Exception.NoSuchCompanyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

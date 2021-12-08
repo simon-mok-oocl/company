@@ -1,4 +1,4 @@
-package com.restapitest.company;
+package com.restapitest.company.Exception;
 
 public class NoSuchCompanyException extends RuntimeException {
     public NoSuchCompanyException()

@@ -1,5 +1,8 @@
-package com.restapitest.company;
+package com.restapitest.company.Repository;
 
+import com.restapitest.company.Entity.Company;
+import com.restapitest.company.Entity.Employee;
+import com.restapitest.company.Exception.NoSuchCompanyException;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

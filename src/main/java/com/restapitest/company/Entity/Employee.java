@@ -1,4 +1,4 @@
-package com.restapitest.company;
+package com.restapitest.company.Entity;
 
 public class Employee {
     private Integer id;
@@ -53,5 +53,18 @@ public class Employee {
 
     public void setSalary(Integer salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+
+        boolean sameId = this.id == ((Employee)obj).getId();
+        boolean sameName = this.name.equals(((Employee)obj).getName());
+        boolean sameAge = this.age == ((Employee)obj).getAge();
+        boolean sameGender = this.gender == ((Employee)obj).getGender();
+        boolean sameSalary = this.salary == ((Employee)obj).getSalary();
+
+        return sameId && sameName && sameGender && sameSalary;
     }
 }
