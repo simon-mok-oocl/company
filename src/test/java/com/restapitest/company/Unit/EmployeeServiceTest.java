@@ -52,18 +52,19 @@ public class EmployeeServiceTest {
 
     }
 
-//    @Test
-//    public void should_return_correct_gender_list_when_getEmployeeByGender_given_gender()
-//    {
-//        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100);
-//        List<Employee> expected = Arrays.asList(employee);
-//        given(employeeRepository.getEmployeeByGender(any())).willReturn(expected);
-//
-//        List<Employee> actual = employeeService.getEmployeeByGender("male");
-//
-//        assertEquals(employee , Arrays.asList(actual));
-//
-//    }
+    @Test
+    public void should_return_correct_gender_list_when_getEmployeeByGender_given_gender()
+    {
+        Employee employee = new Employee(1 , "employee 1" , 10 , "male" , 100);
+        List<Employee> male = new ArrayList<>();
+        male.add(employee);
+        given(employeeRepository.getEmployeeByGender(any())).willReturn(male);
+
+        List<Employee> actual = employeeService.getEmployeeByGender("male");
+
+        assertEquals(male , actual);
+
+    }
 
     @Test
     void should_return_edited_employee_when_editEmployee_given_employee_patch()
