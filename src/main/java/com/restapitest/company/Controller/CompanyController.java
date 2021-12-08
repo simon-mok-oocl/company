@@ -31,6 +31,11 @@ public class CompanyController {
         return this.companyService.updateCompany(id , company);
     }
 
+    @GetMapping("/{id}")
+    public Company getCompanyById(@PathVariable Integer id) throws NoSuchCompanyException {
+        return this.companyService.getCompanyById(id);
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////
 //
 //    @GetMapping
@@ -38,10 +43,7 @@ public class CompanyController {
 //    {
 //        return companyRepository.getCompanies();
 //    }
-//    @GetMapping("/{id}")
-//    public Company getCompanyById(@PathVariable Integer id) throws NoSuchCompanyException {
-//        return this.companyRepository.getCompanyById(id);
-//    }
+
 //
 //    @GetMapping("/{id}/employees")
 //    public List<Employee> getEmployeeByCompany(@PathVariable Integer id) {

@@ -63,27 +63,27 @@ public class CompanyControllerTest {
 
     }
 
-//    @Test
-//    public void should_return_correct_companies_when_getAllCompanies_given_id() throws Exception {
-//        // given
-//        Company company = new Company(1, "spring");
-//        company.setEmployees(Collections.singletonList(new Employee(1, "Lily1", 20, "Female", 8000)));
-//        companyRepository.create(company);
-//
-//        // when
-//
-//        // then
-//        mockMvc.perform(MockMvcRequestBuilders.get("/companies/{id}" , company.getId()))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(jsonPath("$.id").isNumber())
-//                .andExpect(jsonPath("$.companyName").value("spring"))
-//                .andExpect(jsonPath("$.employees", hasSize(1)))
-//                .andExpect(jsonPath("$.employees[0].name").value("Lily1"))
-//                .andExpect(jsonPath("$.employees[0].age").value(20))
-//                .andExpect(jsonPath("$.employees[0].gender").value("Female"))
-//                .andExpect(jsonPath("$.employees[0].salary").value(8000));
-//
-//    }
+    @Test
+    public void should_return_correct_companies_when_getAllCompanies_given_id() throws Exception {
+        // given
+        Company company = new Company(1, "spring");
+        this.employeeRepository.addEmployee(new Employee(1, "Lily1", 20, "Female", 8000 , 1));
+        companyRepository.addCompany(company);
+
+        // when
+
+        // then
+        mockMvc.perform(MockMvcRequestBuilders.get("/companies/{id}" , company.getId()))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(jsonPath("$.id").isNumber())
+                .andExpect(jsonPath("$.name").value("spring"))
+                .andExpect(jsonPath("$.employee", hasSize(1)))
+                .andExpect(jsonPath("$.employee[0].name").value("Lily1"))
+                .andExpect(jsonPath("$.employee[0].age").value(20))
+                .andExpect(jsonPath("$.employee[0].gender").value("Female"))
+                .andExpect(jsonPath("$.employee[0].salary").value(8000));
+
+    }
 //
 //    @Test
 //    public void should_get_all_employees_under_company_when_getAllEmployeesByCompanyId_given_id() throws Exception {

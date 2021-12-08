@@ -59,4 +59,16 @@ public class CompanyServiceTest {
         assertEquals(companyPatch , patchedCompany);
     }
 
+    @Test
+    public void should_return_company_when_getCompanyById_given_company()
+    {
+        Company company = new Company(1, "spring");
+        given(companyRepository.getCompanyById(any())).willReturn(company);
+
+        Company actual = companyService.getCompanyById(1);
+
+        assertEquals(company , actual);
+
+    }
+
 }
