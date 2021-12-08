@@ -59,8 +59,11 @@ public class EmployeeRepository {
 
     public Employee editEmployeeAgeAndSalary(Integer id, Integer age, Integer salary) throws NoSuchEmployeeException {
         Employee patchEmployee = this.getEmployeeById(id);
-        patchEmployee.setAge(age);
-        patchEmployee.setSalary(salary);
+
+        if(age != null && age != 0)
+            patchEmployee.setAge(age);
+        if(salary != null && salary != 0)
+            patchEmployee.setSalary(salary);
 
         return patchEmployee;
     }

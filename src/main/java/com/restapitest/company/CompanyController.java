@@ -28,7 +28,7 @@ public class CompanyController {
     }
 
     @GetMapping("/{id}/employees")
-    public List<Employee> getEmployeeByCompany(@PathVariable Integer id) throws NoSuchCompanyException {
+    public List<Employee> getEmployeeByCompany(@PathVariable Integer id) {
         return this.companyRepository.getEmployeeByCompany(id);
     }
 

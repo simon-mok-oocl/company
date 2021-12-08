@@ -60,9 +60,9 @@ public class CompanyRepository {
 
     public Company getCompanyById(Integer id) throws NoSuchCompanyException {
         return this.companies.stream()
-                .filter(company -> company.getId() == id)
+                .filter(company -> company.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new NoSuchCompanyException());
+                .orElseThrow(NoSuchCompanyException::new);
     }
 
     public List<Employee> getEmployeeByCompany(Integer id) throws NoSuchCompanyException {
