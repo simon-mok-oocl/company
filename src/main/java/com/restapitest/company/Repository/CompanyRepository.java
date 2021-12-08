@@ -53,12 +53,13 @@ public class CompanyRepository {
 
         this.companies.remove(toBeRemove);
     }
+    
 
-    public Company updateCompany(Integer id , Company companyPatch) throws NoSuchCompanyException {
-        Company updateCompany = this.getCompanyById(id);
-
-        updateCompany.setName(companyPatch.getName());
-        return updateCompany;
+    public Company save(Integer id , Company company)
+    {
+        this.removeCompany(id);
+        this.companies.add(company);
+        return company;
     }
 
     public Company getCompanyById(Integer id) throws NoSuchCompanyException {

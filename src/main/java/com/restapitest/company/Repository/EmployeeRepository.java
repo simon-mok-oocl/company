@@ -59,17 +59,17 @@ public class EmployeeRepository {
         return newEmployee;
     }
 
-    public Employee updateEmployee(Integer id , Employee employee)
-    {
-        Employee useEmployee = this.getEmployeeById(id);
-
-        if(employee.getSalary() != null)
-            useEmployee.setSalary(employee.getSalary());
-        if(employee.getAge() != null)
-            useEmployee.setAge(employee.getAge());
-
-        return this.save(id , useEmployee);
-    }
+//    public Employee updateEmployee(Integer id , Employee employee)
+//    {
+//        Employee useEmployee = this.getEmployeeById(id);
+//
+//        if(employee.getSalary() != null)
+//            useEmployee.setSalary(employee.getSalary());
+//        if(employee.getAge() != null)
+//            useEmployee.setAge(employee.getAge());
+//
+//        return this.save(id , useEmployee);
+//    }
 
     public Employee save(Integer id , Employee employee)
     {
