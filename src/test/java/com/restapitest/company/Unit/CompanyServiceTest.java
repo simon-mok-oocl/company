@@ -1,6 +1,7 @@
 package com.restapitest.company.Unit;
 
 import com.restapitest.company.Entity.Company;
+import com.restapitest.company.Entity.Employee;
 import com.restapitest.company.Repository.CompanyRepository;
 import com.restapitest.company.Repository.EmployeeRepository;
 import com.restapitest.company.Service.CompanyService;
@@ -81,9 +82,9 @@ public class CompanyServiceTest {
 
     }
 
-//    @Test
-//    public void should_return_employee_when_getEmployeeByCompany_given_company_id()
-//    {
+    @Test
+    public void should_return_employee_when_getEmployeeByCompany_given_company_id()
+    {
 //        Employee employee = new Employee(1 , "employee1" , 11 , "male" , 100 , 1);
 //        List<Employee> employees = new ArrayList<>();
 //        employees.add(employee);
@@ -93,7 +94,20 @@ public class CompanyServiceTest {
 //        List<Employee> actual = companyService.getEmployeeByCompany(1);
 //
 //        assertEquals(employees , actual);
-//    }
+
+        Company company = new Company(1, "spring");
+        Employee employee = new Employee(1 , "employee 1" , 1, "female" ,1 , 1);
+        companyRepository.addCompany(company);
+        employeeRepository.addEmployee(employee);
+
+        List<Employee> employees = new ArrayList<>();
+        employees.add(employee);
+        given(employeeRepository.getEmployeeByCompany(any())).willReturn(employees);
+
+        List<Employee> actual = employeeRepository.getEmployeeByCompany(1);
+
+        assertEquals(employees , actual);
+    }
 
     @Test
     public void should_return_company_page_when_getCompanyByPage_given_page_pageSize()

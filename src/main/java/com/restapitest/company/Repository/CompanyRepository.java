@@ -64,11 +64,11 @@ public class CompanyRepository {
                 .orElseThrow(NoSuchCompanyException::new);
     }
 
-    public List<Employee> getEmployeeByCompany(Integer id) throws NoSuchCompanyException {
-        Company useCompany = this.getCompanyById(id);
-
-        return useCompany.getEmployee();
-    }
+//    public List<Employee> getEmployeeByCompany(Integer id) throws NoSuchCompanyException {
+//        Company useCompany = this.getCompanyById(id);
+//
+//        return useCompany.getEmployee();
+//    }
 
     public List<Company> getCompanyByPage(Integer page, Integer pageSize) {
         return this.companies.stream()
