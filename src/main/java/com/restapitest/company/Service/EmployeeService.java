@@ -41,4 +41,8 @@ public class EmployeeService {
     public Employee removeEmployee(Integer id) {
         return this.employeeRepository.removeEmployee(id);
     }
+
+    public Employee addEmployee(Employee newEmployee) {
+        return this.employeeRepository.addEmployee(newEmployee);
+    }
 }

@@ -56,32 +56,32 @@ public class EmployeeControllerTest {
 
     }
     
-//    @Test
-//    public void should_return_employee_when_create_given_employee() throws Exception {
-//        // given
-//        String employee = "{\n" +
-//                "        \"id\": 1,\n" +
-//                "        \"name\": \"Lily1\",\n" +
-//                "        \"age\": 20,\n" +
-//                "        \"gender\": \"Female\",\n" +
-//                "        \"salary\": 8000\n" +
-//                "    }";
-//
-//
-//        // when
-//
-//        // then
-//        mockMvc.perform(MockMvcRequestBuilders.post("/employees")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(employee))
-//                .andExpect(status().isCreated())
-//                .andExpect(jsonPath("$.name").value("Lily1"))
-//                .andExpect(jsonPath("$.age").value(20))
-//                .andExpect(jsonPath("$.gender").value("Female"))
-//                .andExpect(jsonPath("$.salary").value(8000));
-//
-//    }
-//
+    @Test
+    public void should_return_employee_when_create_given_employee() throws Exception {
+        // given
+        String employee = "{\n" +
+                "        \"id\": 1,\n" +
+                "        \"name\": \"Lily1\",\n" +
+                "        \"age\": 20,\n" +
+                "        \"gender\": \"Female\",\n" +
+                "        \"salary\": 8000\n" +
+                "    }";
+
+
+        // when
+
+        // then
+        mockMvc.perform(MockMvcRequestBuilders.post("/employees")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(employee))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.name").value("Lily1"))
+                .andExpect(jsonPath("$.age").value(20))
+                .andExpect(jsonPath("$.gender").value("Female"))
+                .andExpect(jsonPath("$.salary").value(8000));
+
+    }
+
     @Test
     public void should_get_correct_employee_when_get_employee_by_id_given_id() throws Exception {
         // given
@@ -179,19 +179,6 @@ public class EmployeeControllerTest {
 
     }
 
-//    @Test
-//    public void should_return_nothing_when_delete_given_id() throws Exception {
-//        // given
-//        Employee employee = new Employee(1, "Tom", 20, "male", 10000);
-//        employeeRepository.addEmployee(employee);
-//
-//        // when
-//
-//        // then
-//        mockMvc.perform(MockMvcRequestBuilders.delete("/employees/{id}" , employee.getId()))
-//                .andExpect(status().isNoContent());
-//
-//    }
 
     @Test
     public void should_return_nothing_when_delete_given_id() throws Exception {

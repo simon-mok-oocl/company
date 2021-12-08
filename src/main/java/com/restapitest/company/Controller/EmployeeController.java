@@ -48,17 +48,15 @@ public class EmployeeController {
         return new ResponseEntity<Employee>( (Employee) null , HttpStatus.NO_CONTENT);
     }
 
-///////////////////////////////////////////////////////////////////////////////
-//    @GetMapping("/{id}")
-//    public Employee getEmployeeById(@PathVariable Integer id) throws NoSuchEmployeeException {
-//        return this.emplyeeRepository.getEmployeeById(id);
-//    }
+    @PostMapping
+    public ResponseEntity<Employee> createEmployee(@RequestBody Employee newEmployee)
+    {
+        this.employeeService.addEmployee(newEmployee);
+        return new ResponseEntity<Employee>(newEmployee, HttpStatus.CREATED);
+    }
 
-//    @GetMapping(params = {"gender"})
-//    public List<Employee> getEmployeeByGender(@RequestParam String gender)
-//    {
-//        return this.emplyeeRepository.getEmployeeByGender(gender);
-//    }
+///////////////////////////////////////////////////////////////////////////////
+
 //
 //    @GetMapping(params = {"page" , "pageSize"})
 //    public List<Employee> getEmployeeInPage(@RequestParam Integer page , @RequestParam Integer pageSize)
@@ -72,16 +70,6 @@ public class EmployeeController {
 //        this.emplyeeRepository.addEmployee(newEmployee);
 //        return new ResponseEntity<Employee>(newEmployee, HttpStatus.CREATED);
 //    }
-//
-//    @PutMapping("/{id}")
-//    public Employee editEmployeeAgeAndSalary(@PathVariable Integer id , @RequestBody Employee employeePatch) throws NoSuchEmployeeException {
-//        return this.emplyeeRepository.updateEmployee(id , employeePatch);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Employee> deleteEmployee(@PathVariable Integer id) throws NoSuchEmployeeException {
-//        this.emplyeeRepository.removeEmployee(id);
-//        return new ResponseEntity<Employee>( (Employee) null , HttpStatus.NO_CONTENT);
-//    }
+
 
 }
