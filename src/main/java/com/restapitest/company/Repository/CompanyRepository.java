@@ -53,7 +53,7 @@ public class CompanyRepository {
 
         this.companies.remove(toBeRemove);
     }
-    
+
 
     public Company save(Integer id , Company company)
     {
@@ -80,5 +80,9 @@ public class CompanyRepository {
                 .skip((page - 1) * pageSize)
                 .limit(pageSize)
                 .collect(Collectors.toList());
+    }
+
+    public void clearAll() {
+        this.companies.clear();
     }
 }
