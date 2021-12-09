@@ -1,7 +1,8 @@
-package com.restapitest.company;
+package com.restapitest.company.Unit;
 
 import com.restapitest.company.Entity.Employee;
 import com.restapitest.company.Repository.EmployeeRepository;
+import com.restapitest.company.Service.EmployeeService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -24,7 +25,7 @@ public class EmployeeServiceTest {
     EmployeeRepository employeeRepository;
 
     @InjectMocks
-    com.restapitest.company.EmployeeService employeeService;
+    EmployeeService employeeService;
 
     @Test
     public void should_return_employee_list_when_getEmployeeList()

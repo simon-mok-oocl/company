@@ -3,18 +3,18 @@ package com.restapitest.company.Entity;
 import java.util.List;
 
 public class Company {
-    private Integer id;
+    private String id;
     private String name;
     private List<Employee> employee;
 
     public Company(Integer id, String name) {
-        this.id = id;
+        this.id = Integer.toString(id);
         this.name = name;
         this.employee = null;
     }
 
     public Integer getId() {
-        return id;
+        return Integer.valueOf(id);
     }
 
     public String getName() {
@@ -26,7 +26,7 @@ public class Company {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id = Integer.toString(id);
     }
 
     public void setName(String name) {
@@ -40,7 +40,7 @@ public class Company {
     @Override
     public boolean equals(Object obj)
     {
-        boolean sameId = this.id == ((Company)obj).getId();
+        boolean sameId = Integer.valueOf(this.id) == ((Company)obj).getId();
         boolean sameName = this.name == ((Company)obj).getName();
 
         return sameId && sameName;

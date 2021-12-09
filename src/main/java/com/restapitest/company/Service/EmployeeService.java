@@ -1,7 +1,8 @@
-package com.restapitest.company;
+package com.restapitest.company.Service;
 
 import com.restapitest.company.Entity.Employee;
 import com.restapitest.company.Repository.EmployeeRepository;
+import com.restapitest.company.Repository.EmployeeRepositoryNew;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,13 +10,15 @@ import java.util.List;
 @Service
 public class EmployeeService {
     EmployeeRepository employeeRepository;
+    EmployeeRepositoryNew employeeRepositoryNew;
 
-    public EmployeeService(EmployeeRepository employeeRepository) {
+    public EmployeeService(EmployeeRepository employeeRepository, EmployeeRepositoryNew employeeRepositoryNew) {
         this.employeeRepository = employeeRepository;
+        this.employeeRepositoryNew = employeeRepositoryNew;
     }
 
     public List<Employee> getEmployeeList() {
-        return employeeRepository.getEmployeeList();
+        return employeeRepositoryNew.findAll();
     }
 
     public Employee getEmployeeById(Integer id) {

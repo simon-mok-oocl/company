@@ -1,12 +1,18 @@
 package com.restapitest.company.Entity;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.FieldType;
+import org.springframework.data.mongodb.core.mapping.MongoId;
+
+@Document("employee")
 public class Employee {
-    private Integer id;
+    @MongoId(FieldType.OBJECT_ID)
+    private String id = new String();
     private String name;
     private Integer age;
     private String gender;
     private Integer salary;
-    private Integer companyId;
+    private String companyId;
 
 //    public Employee(Integer id, String name, Integer age, String gender, Integer salary) {
 //        this.id = id;
@@ -18,20 +24,20 @@ public class Employee {
 //    }
 
     public Employee(Integer id, String name, Integer age, String gender, Integer salary , Integer companyId) {
-        this.id = id;
+        this.id = Integer.toString(id);
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.salary = salary;
-        this.companyId = companyId;
+        this.companyId = Integer.toString(companyId);
     }
 
     public Integer getCompanyId() {
-        return companyId;
+        return Integer.valueOf(companyId);
     }
 
     public Integer getId() {
-        return id;
+        return Integer.valueOf(id);
     }
 
     public String getName() {
@@ -51,7 +57,7 @@ public class Employee {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id = Integer.toString(id);
     }
 
     public void setName(String name) {
@@ -74,7 +80,7 @@ public class Employee {
     public boolean equals(Object obj)
     {
 
-        boolean sameId = this.id == ((Employee)obj).getId();
+        boolean sameId = Integer.valueOf(this.id) == ((Employee)obj).getId();
         boolean sameName = this.name.equals(((Employee)obj).getName());
         boolean sameAge = this.age == ((Employee)obj).getAge();
         boolean sameGender = this.gender == ((Employee)obj).getGender();

@@ -1,10 +1,9 @@
 package com.restapitest.company.Controller;
 
-
-import com.restapitest.company.EmployeeService;
 import com.restapitest.company.Entity.Employee;
 import com.restapitest.company.Exception.NoSuchEmployeeException;
 import com.restapitest.company.Repository.EmployeeRepository;
+import com.restapitest.company.Service.EmployeeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
